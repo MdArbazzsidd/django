@@ -1,0 +1,23 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    test content for form
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit'>SearchToStore</button>
+    </form>
+{% if store %}
+    <h2 class='py-2 text-red-500 w-1/6 bg-black m-2 rounded p-4'>avilable_stores</h2>
+   <ul>
+    {% for stores in store %}
+        <li>
+            <h3 class='py-2 px-3 text-green-600' >StoreName: < {{stores.name}} ></h3>
+            <h3 class='py-2 px-3 text-green-600' >locations: < {{stores.location}}></h3>
+        </li>       
+    {% endfor %}
+   </ul>
+{% endif %}
+    
+{% endblock %}
