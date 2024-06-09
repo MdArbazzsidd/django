@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Details Page
+{% endblock %}
+
+{% block content %}
+<h1>These are your ordered chai ❤️</h1>
+<p>Chai Name: {{ chai.name }}</p>
+<p>Chai Description: {{ chai.description }}</p>
+<p>Chai Price: {{ chai.price }}</p>
+{% endblock %}

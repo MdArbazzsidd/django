@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    orderList
+{% endblock %}
+
+{% block content %}
+<h1>chai ❤️</h1>
+<div class='grid grid-cols-3 gap-0 m-10'>
+    {% for chai in chais  %}
+        <div class='bg-red-600  relative w-1/2 h-[70%] rounded '>
+            <img class='rounded object-cover w-full h-full shadow-2xl cursor-pointer' src="{{chai.image.url}}" alt="">
+    
+            <h2 class='text-2xl font-semibold mb-2'>{{chai.name}}</h2>
+            <button 
+                type="button"
+                class="inline-flex items-center w-[100%]  justify-center  px-4 py-2  mb-2 border border-transparent text-s font-medium rounded-md text-white bg-orange-800 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                >
+                <h1 class=''> RS: </h1>
+                    {{ chai.price}}
+                </button> 
+               
+            <a href="{% url "chai_detail" chai.id %}">
+                <button 
+                type="button"
+                class="inline-flex items-center w-[100%] justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                >
+                    {{chai.chai_type}} - {{chai.id}}
+                </button>
+            </a>
+            
+        </div>
+    {% endfor %}
+</div>
+      
+    
+{% endblock %}
